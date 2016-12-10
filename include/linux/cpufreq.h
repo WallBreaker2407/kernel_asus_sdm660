@@ -539,6 +539,9 @@ extern struct cpufreq_governor cpufreq_gov_chill;
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_RELAXED)
 extern struct cpufreq_governor cpufreq_gov_relaxed;
 #define CPUFREQ_DEFAULT_GOVERNOR	(&cpufreq_gov_relaxed)
+#elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_LIONHEART)
+extern struct cpufreq_governor cpufreq_gov_lionheart;
+#define CPUFREQ_DEFAULT_GOVERNOR 	(&cpufreq_gov_LIONHEART)
 #elif defined(CONFIG_CPU_FREQ_DEFAULT_GOV_ZZMOOVE)
 extern struct cpufreq_governor cpufreq_gov_zzmoove;
 #define CPUFREQ_DEFAULT_GOVERNOR       (&cpufreq_gov_zzmoove)
