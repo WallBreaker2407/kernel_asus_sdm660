@@ -5164,6 +5164,10 @@ static int fg_parse_dt(struct fg_chip *chip)
 			pr_warn("Error reading Jeita thresholds, default values will be used rc:%d\n",
 				rc);
 	}
+/* Huaqin modify for ZQL1650 Realize HW Jeita by fangaijun	at 2018/02/6 start */
+	printk("enter fg_parse_dt :HW jeita cold:%d,cool:%d,warm:%d,hot:%d\n", chip->dt.jeita_thresholds[JEITA_COLD],chip->dt.jeita_thresholds[JEITA_COOL] ,chip->dt.jeita_thresholds[JEITA_WARM],chip->dt.jeita_thresholds[JEITA_HOT]); 
+/* Huaqin modify for ZQL1650 Realize HW Jeita by fangaijun	at 2018/02/6 end */
+
 	chip->dt.jeita_thresholds[JEITA_WARM] = 97;
 	chip->dt.jeita_thresholds[JEITA_HOT] = 97;
 
