@@ -3455,8 +3455,8 @@ void smblib_asus_monitor_start(struct smb_charger *chg, int time)
 #define SMBCHG_FLOAT_VOLTAGE_VALUE_4P064	0x4D
 #define SMBCHG_FLOAT_VOLTAGE_VALUE_4P350	0x73
 #define SMBCHG_FLOAT_VOLTAGE_VALUE_4P357	0x74
-#define SMBCHG_FLOAT_VOLTAGE_VALUE_4P385	0x78
-#define SMBCHG_FLOAT_VOLTAGE_VALUE_4P392	0x79
+#define SMBCHG_FLOAT_VOLTAGE_VALUE_4P385	0xF8
+#define SMBCHG_FLOAT_VOLTAGE_VALUE_4P392	0xF9
 #define SMBCHG_FAST_CHG_CURRENT_VALUE_850MA	0x22
 #define SMBCHG_FAST_CHG_CURRENT_VALUE_1400MA	0x38
 #define SMBCHG_FAST_CHG_CURRENT_VALUE_1475MA	0x3B
@@ -3465,7 +3465,7 @@ void smblib_asus_monitor_start(struct smb_charger *chg, int time)
 #define SMBCHG_FAST_CHG_CURRENT_VALUE_2050MA	0x52
 #define SMBCHG_FAST_CHG_CURRENT_VALUE_2500MA	0x64
 #define SMBCHG_FAST_CHG_CURRENT_VALUE_2850MA	0x72
-#define SMBCHG_FAST_CHG_CURRENT_VALUE_3000MA	0x78
+#define SMBCHG_FAST_CHG_CURRENT_VALUE_3000MA 	0xF8
 
 enum JEITA_state {
 	JEITA_STATE_INITIAL,
@@ -3539,11 +3539,11 @@ int smbchg_jeita_judge_state(int old_State, int batt_tempr)
 	} else if (batt_tempr < 100) {
 		result_State = JEITA_STATE_RANGE_0_to_100;
 	/* 10 <= batt_tempr < 50 */
-	} else if (batt_tempr < 500) {
-		result_State = JEITA_STATE_RANGE_100_to_500;
-	/* 50 <= batt_tempr < 60 */
 	} else if (batt_tempr < 600) {
 		result_State = JEITA_STATE_RANGE_100_to_500;
+	/* 50 <= batt_tempr < 60 */
+	// } else if (batt_tempr < 600) {
+		// result_State = JEITA_STATE_RANGE_100_to_500;
 	/* 60 <= batt_tempr */
 	} else
 		result_State = JEITA_STATE_LARGER_THAN_600;

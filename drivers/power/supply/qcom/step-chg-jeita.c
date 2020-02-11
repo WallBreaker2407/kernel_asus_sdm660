@@ -89,8 +89,8 @@ static struct step_chg_cfg step_chg_config = {
 	.fcc_cfg	= {
 		/* VBAT_LOW	VBAT_HIGH	FCC */
 		{3600000,	4000000,	3000000},
-		{4001000,	4200000,	2800000},
-		{4201000,	4400000,	2000000},
+		{4001000,	4200000,	4800000},
+		{4201000,	4400000,	5000000},
 	},
 	/*
 	 *	SOC STEP-CHG configuration example.
@@ -121,39 +121,10 @@ static struct jeita_fcc_cfg jeita_fcc_config = {
 	.hysteresis	= 10, /* 1degC hysteresis */
 	.fcc_cfg	= {
 		/* TEMP_LOW	TEMP_HIGH	FCC */
-#ifdef CONFIG_MACH_LONGCHEER
-#if defined(CONFIG_MACH_XIAOMI_WAYNE)
-		{0,		 50,		 400000},
-		{51,		150,		1200000},
-		{151,		430,		2400000},
-		{431,		450,		2000000},
-		{451,		470,		1500000},
-		{471,		600,		 800000},
-#elif defined(CONFIG_MACH_XIAOMI_LAVENDER)
-		{0,		 50,		 400000},
-		{51,		150,		1200000},
-		{151,		430,		2400000},
-		{431,		450,		2000000},
-		{451,		470,		1500000},
-		{471,		600,		 800000},
-#elif defined(CONFIG_MACH_XIAOMI_WHYRED)
-		{0,		 50,		 400000},
-		{51,		150,		1200000},
-		{151,		400,		2400000},
-		{401,		430,		2000000},
-		{431,		450,		1500000},
-		{451,		470,		1000000},
-		{471,		600,		 600000},
-#elif defined(CONFIG_MACH_XIAOMI_TULIP)
-		{0,		 50,		 400000},
-		{51,		150,		1200000},
-		{151,		400,		2400000},
-		{401,		430,		2000000},
-		{431,		450,		1500000},
-		{451,		470,		1000000},
-		{471,		600,		 600000},
-#endif
-#endif
+		{0,		100,		2000000},
+		{101,		200,		3000000},
+		{201,		450,		4000000},
+		{451,		550,		5000000},
 	},
 };
 
@@ -163,9 +134,9 @@ static struct jeita_fv_cfg jeita_fv_config = {
 	.hysteresis	= 10, /* 1degC hysteresis */
 	.fv_cfg		= {
 		/* TEMP_LOW	TEMP_HIGH	FCC */
-		{0,		150,		6200000},
-		{151,		450,		6200000},
-		{451,		600,		6200000},
+		{0,		100,		4200000},
+		{101,		450,		5400000},
+		{451,		550,		6200000},
 	},
 };
 
