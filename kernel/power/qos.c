@@ -49,7 +49,7 @@
 
 #include <linux/uaccess.h>
 #include <linux/export.h>
-#include <trace/events/power.h>
+//#include <trace/events/power.h>
 
 /*
  * locking rule: all changes to constraints or notifiers lists
